@@ -25,11 +25,15 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    // TODO: Set up minimum and maximum values
     @NonNull
     private String name;
+
     @NonNull
     private LocalDate dob;
+
     @NonNull
+    @Column(unique = true, length = 64)
     private String email;
 
     @Transient
