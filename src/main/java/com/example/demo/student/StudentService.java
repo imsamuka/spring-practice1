@@ -1,10 +1,11 @@
 package com.example.demo.student;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import java.util.List;
 
 import javax.transaction.Transactional;
-import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class StudentService {
@@ -16,8 +17,16 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    public List<Student> getStudents() {
+    public List<Student> getAllStudents() {
         return studentRepository.findAll();
+    }
+
+    public Student getStudent(Long studentId) {
+        // TODO: throw NotFound Exception
+
+        return studentRepository.findById(studentId)
+                .orElseThrow(() -> new IllegalStateException(
+                        "Student with id '" + studentId + "' not found"));
     }
 
     public void addNewStudent(Student student) {
