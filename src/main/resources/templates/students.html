@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<title>Students</title>
@@ -30,175 +30,32 @@
 	<div class="container overflow-hidden" id="students-container">
 		<div class="row g-3 row-cols-1 row-cols-sm-2 row-cols-lg-3 justify-content-center">
 
-
-			<div class="col">
+			<div class="col" th:each="student : ${students}">
 				<div class="card text-center">
 					<div class="card-body">
-						<h4 class="card-title student-name">Student Name</h4>
+						<h4 class="card-title student-name" th:text="${student.name}"></h4>
 
 						<h6 class="card-subtitle mb-2 text-muted">
-							<span class="student-dob">4/6/1998</span> -
-							<span class="badge bg-secondary student-age">24</span>
+							<span class="student-dob" th:text="${student.dob}"></span> -
+							<span class="badge bg-secondary student-age"
+								th:text="${student.age}"></span>
 						</h6>
 
-						<p class="card-text student-email">mock.1234@mail.com</p>
+						<p class="card-text student-email" th:text="${student.email}"></p>
 
 						<div class="d-grid gap-2 d-md-flex justify-content-md-center">
 							<button type="button" name="btn-delete"
-								class="btn btn-outline-danger">Delete</button>
+								class="btn btn-outline-danger" disabled>Delete</button>
 
 							<button type="button" name="btn-update"
-								class="btn btn-outline-primary">Update</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-
-
-			<div class="col">
-				<div class="card text-center">
-					<div class="card-body">
-						<h4 class="card-title student-name">Student Name With a Actually
-							really
-							long name</h4>
-
-						<h6 class="card-subtitle mb-2 text-muted">
-							<span class="student-dob">4/6/1998</span> -
-							<span class="badge bg-secondary student-age">24</span>
-						</h6>
-
-						<p class="card-text student-email">mock.1234@mail.com</p>
-
-						<div class="d-grid gap-2 d-md-flex justify-content-md-center">
-							<button type="button" name="btn-delete"
-								class="btn btn-outline-danger">Delete</button>
-
-							<button type="button" name="btn-update"
-								class="btn btn-outline-primary">Update</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card text-center">
-					<div class="card-body">
-						<h4 class="card-title student-name">Student Name</h4>
-
-						<h6 class="card-subtitle mb-2 text-muted">
-							<span class="student-dob">4/6/1998</span> -
-							<span class="badge bg-secondary student-age">24</span>
-						</h6>
-
-						<p class="card-text student-email">
-							mockreallylooooooooong@mail.com</p>
-
-						<div class="d-grid gap-2 d-md-flex justify-content-md-center">
-							<button type="button" name="btn-delete"
-								class="btn btn-outline-danger">Delete</button>
-
-							<button type="button" name="btn-update"
-								class="btn btn-outline-primary">Update</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card text-center">
-					<div class="card-body">
-						<h4 class="card-title student-name">Student Name</h4>
-
-						<h6 class="card-subtitle mb-2 text-muted">
-							<span class="student-dob">4/6/1998</span> -
-							<span class="badge bg-secondary student-age">24</span>
-						</h6>
-
-						<p class="card-text student-email">mock.1234@mail.com</p>
-
-						<div class="d-grid gap-2 d-md-flex justify-content-md-center">
-							<button type="button" name="btn-delete"
-								class="btn btn-outline-danger">Delete</button>
-
-							<button type="button" name="btn-update"
-								class="btn btn-outline-primary">Update</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card text-center">
-					<div class="card-body">
-						<h4 class="card-title student-name">Student Name</h4>
-
-						<h6 class="card-subtitle mb-2 text-muted">
-							<span class="student-dob">4/6/1998</span> -
-							<span class="badge bg-secondary student-age">24</span>
-						</h6>
-
-						<p class="card-text student-email">mock.1234@mail.com</p>
-
-						<div class="d-grid gap-2 d-md-flex justify-content-md-center">
-							<button type="button" name="btn-delete"
-								class="btn btn-outline-danger">Delete</button>
-
-							<button type="button" name="btn-update"
-								class="btn btn-outline-primary">Update</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card text-center">
-					<div class="card-body">
-						<h4 class="card-title student-name">Student Name</h4>
-
-						<h6 class="card-subtitle mb-2 text-muted">
-							<span class="student-dob">4/6/1998</span> -
-							<span class="badge bg-secondary student-age">24</span>
-						</h6>
-
-						<p class="card-text student-email">mock.1234@mail.com</p>
-
-						<div class="d-grid gap-2 d-md-flex justify-content-md-center">
-							<button type="button" name="btn-delete"
-								class="btn btn-outline-danger">Delete</button>
-
-							<button type="button" name="btn-update"
-								class="btn btn-outline-primary">Update</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card text-center">
-					<div class="card-body">
-						<h4 class="card-title student-name">Student Name</h4>
-
-						<h6 class="card-subtitle mb-2 text-muted">
-							<span class="student-dob">4/6/1998</span> -
-							<span class="badge bg-secondary student-age">24</span>
-						</h6>
-
-						<p class="card-text student-email">mock.1234@mail.com</p>
-
-						<div class="d-grid gap-2 d-md-flex justify-content-md-center">
-							<button type="button" name="btn-delete"
-								class="btn btn-outline-danger">Delete</button>
-
-							<button type="button" name="btn-update"
-								class="btn btn-outline-primary">Update</button>
+								class="btn btn-outline-primary" disabled>Update</button>
 						</div>
 					</div>
 				</div>
 			</div>
 
 		</div>
-
 	</div>
-
-
-
 
 </body>
 

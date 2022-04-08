@@ -38,7 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.csrf().disable()
 				// .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()
 				.authorizeRequests()
-				.antMatchers("/", "index", "/css/*", "/js/*")
+				.antMatchers("/", "/login", "/css/*", "/js/*")
 				.permitAll()
 				.anyRequest()
 				.authenticated()
@@ -59,7 +59,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.clearAuthentication(true)
 				.invalidateHttpSession(true)
 				.deleteCookies("remember-me", "JSESSIONID", "csrftoken")
-				.logoutSuccessUrl("/");
+				.logoutSuccessUrl("/login?logout");
 	}
 
 	@Override
