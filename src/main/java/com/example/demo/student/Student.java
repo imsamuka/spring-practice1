@@ -2,6 +2,7 @@ package com.example.demo.student;
 
 import javax.persistence.*;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.NonNull;
 
 import lombok.AllArgsConstructor;
@@ -30,6 +31,7 @@ public class Student {
     private String name;
 
     @NonNull
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate dob;
 
     @NonNull

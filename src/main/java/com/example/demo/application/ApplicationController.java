@@ -18,9 +18,4 @@ public class ApplicationController {
 		return "login";
 	}
 
-	@GetMapping("students")
-	public String students() {
-		return "students";
-	}
-
 }

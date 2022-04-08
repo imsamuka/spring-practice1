@@ -19,7 +19,7 @@
 	align-items-center align-content-between mb-3">
 		<h1 class="display-3 mx-3">Students</h1>
 		<div class="d-flex gap-2 mx-3">
-			<a class="btn btn-lg btn-block btn-success" href="#" role="button">Add</a>
+			<a class="btn btn-lg btn-block btn-success" href="add" role="button">Add</a>
 			<form class="form-signin" method="post" action="/logout">
 				<button class="btn btn-lg btn-block btn-secondary" type="submit">Logout</button>
 			</form>
@@ -44,11 +44,12 @@
 						<p class="card-text student-email" th:text="${student.email}"></p>
 
 						<div class="d-grid gap-2 d-md-flex justify-content-md-center">
-							<button type="button" name="btn-delete"
-								class="btn btn-outline-danger" disabled>Delete</button>
 
-							<button type="button" name="btn-update"
-								class="btn btn-outline-primary" disabled>Update</button>
+							<a name="btn-delete" class="btn btn-outline-danger"
+								href="delete/studentId" role="button">Delete</a>
+
+							<!-- <button type="submit" name="btn-delete" class="btn btn-outline-danger">Delete</button> -->
+							<!-- <button type="button" name="btn-update" class="btn btn-outline-primary" disabled>Update</button> -->
 						</div>
 					</div>
 				</div>
