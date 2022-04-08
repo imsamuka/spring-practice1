@@ -3,6 +3,8 @@ package com.example.demo.security;
 import static com.example.demo.security.ApplicationUserRole.*;
 // import static com.example.demo.security.ApplicationUserPermissions.*;
 
+import java.util.concurrent.TimeUnit;
+
 // import org.springframework.http.HttpMethod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -38,12 +40,26 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 				.authorizeRequests()
 				.antMatchers("/", "index", "/css/*", "/js/*")
 				.permitAll()
-				// .antMatchers(HttpMethod.DELETE,
-				// "/api/**").hasAuthority(COURSE_WRITE.getPermission())
 				.anyRequest()
 				.authenticated()
 				.and()
-				.httpBasic();
+
+				.formLogin()
+				.loginPage("/login").permitAll()
+				.defaultSuccessUrl("/students", false)
+				.and()
+
+				.rememberMe()
+				.tokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(21))
+				.key("bX9h3wdf*LWxK$VX^uK@BlvPvj#xWzXkYyKpk#y")
+				.and()
+
+				.logout()
+				.logoutUrl("/logout")
+				.clearAuthentication(true)
+				.invalidateHttpSession(true)
+				.deleteCookies("remember-me", "JSESSIONID", "csrftoken")
+				.logoutSuccessUrl("/");
 	}
 
 	@Override
@@ -53,14 +69,12 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 		UserDetails smk = User.builder()
 				.username("smk")
 				.password(passwordEncoder.encode("123"))
-				// .roles(ADMIN.name())
 				.authorities(ADMIN.getGrantedAuthorities())
 				.build();
 
 		UserDetails ana = User.builder()
 				.username("ana")
 				.password(passwordEncoder.encode("123"))
-				// .roles(STUDENT.name())
 				.authorities(STUDENT.getGrantedAuthorities())
 				.build();
 
