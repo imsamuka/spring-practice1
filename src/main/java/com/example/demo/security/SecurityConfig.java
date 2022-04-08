@@ -1,6 +1,6 @@
 package com.example.demo.security;
 
-import static com.example.demo.security.ApplicationUserRole.*;
+import static com.example.demo.security.UserRole.*;
 // import static com.example.demo.security.ApplicationUserPermissions.*;
 
 import java.util.concurrent.TimeUnit;
@@ -22,12 +22,12 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	private final PasswordEncoder passwordEncoder;
 
 	@Autowired
-	public ApplicationSecurityConfig(PasswordEncoder passwordEncoder) {
+	public SecurityConfig(PasswordEncoder passwordEncoder) {
 		this.passwordEncoder = passwordEncoder;
 	}
 
